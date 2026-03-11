@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anna Lazouskaya · Cambridge English Specialist</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; -webkit-font-smoothing:antialiased; }
+
+:root {
+  --ink: #080808;
+  --cream: #f8f3eb;
+  --gold: #c4922a;
+  --gold-l: #e8c96a;
+  --gold-d: #8a6318;
+  --off: rgba(248,243,235,0.55);
+  --dim: rgba(248,243,235,0.25);
+  --rule: rgba(248,243,235,0.08);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--ink);
+  font-family: 'Outfit', sans-serif;
+  color: var(--cream);
+  min-height: 100vh;
+}
+
+.page {
+  max-width: 460px;
+  margin: 0 auto;
+  padding-bottom: 60px;
+}
+
+/* ─── HERO ─── */
+.hero {
+  padding: 56px 28px 44px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle radial glow */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -100px; left: 50%;
+  transform: translateX(-50%);
+  width: 420px; height: 420px;
+  background: radial-gradient(circle at center, rgba(196,146,42,0.07) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+/* Gold line top */
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 28px; right: 28px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.avatar-wrap {
+  position: relative;
+  width: 88px;
+  height: 88px;
+  margin: 0 auto 22px;
+}
+.avatar-ring {
+  width: 88px; height: 88px;
+  border-radius: 50%;
+  background: conic-gradient(from 180deg, #c4922a, #e8c96a, #c4922a, #8a6318, #c4922a);
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.avatar-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #0f0d09;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.avatar-initials {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 2.28rem;
+  font-weight: 700;
+  color: var(--gold-l);
+  letter-spacing: -1px;
+}
+
+/* Verified dot */
+.avatar-badge {
+  position: absolute;
+  bottom: 2px; right: 2px;
+  width: 22px; height: 22px;
+  background: var(--gold);
+  border-radius: 50%;
+  border: 2px solid var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+}
+
+.hero-name {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.3px;
+  margin-bottom: 6px;
+}
+
+.hero-role {
+  font-size: 1.1rem;
+  color: var(--off);
+  font-weight: 300;
+  line-height: 1.6;
+  margin-bottom: 22px;
+}
+
+/* Journey flags */
+.journey {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin-bottom: 6px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.journey::-webkit-scrollbar { display: none; }
+
+.journey-stop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
+.j-flag { font-size: 1.62rem; line-height: 1; margin-bottom: 3px; }
+.j-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  color: var(--dim);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.journey-arrow {
+  font-size: 1.0rem;
+  color: var(--gold-d);
+  margin: 0 6px;
+  flex-shrink: 0;
+  margin-bottom: 14px;
+  opacity: 0.6;
+}
+
+.hero-tagline {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.85rem;
+  letter-spacing: 2.5px;
+  color: var(--dim);
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+/* ─── CREDENTIAL STRIP ─── */
+.cred-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  background: rgba(255,255,255,0.02);
+}
+.cred {
+  padding: 16px 6px;
+  text-align: center;
+  border-right: 1px solid var(--rule);
+}
+.cred:last-child { border-right: none; }
+.cred-num {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--gold-l);
+  display: block;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.cred-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--dim);
+  line-height: 1.4;
+}
+
+/* ─── SECTION LABEL ─── */
+.s-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.85rem;
+  letter-spacing: 3px;
+  color: var(--dim);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  display: block;
+}
+
+/* ─── STORY SECTION ─── */
+.story {
+  padding: 36px 28px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.story-text {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 1.25rem;
+  font-style: italic;
+  color: rgba(248,243,235,0.75);
+  line-height: 1.75;
+  margin-bottom: 18px;
+}
+.story-text strong {
+  color: var(--cream);
+  font-style: normal;
+}
+
+/* Timeline */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 22px;
+}
+.tl-item {
+  display: flex;
+  gap: 16px;
+  padding-bottom: 20px;
+  position: relative;
+}
+.tl-item:last-child { padding-bottom: 0; }
+
+.tl-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  width: 32px;
+}
+.tl-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--gold);
+  border: 2px solid var(--gold-d);
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+.tl-line {
+  width: 1px;
+  flex: 1;
+  background: linear-gradient(to bottom, var(--gold-d), transparent);
+  margin-top: 4px;
+  min-height: 24px;
+}
+.tl-item:last-child .tl-line { display: none; }
+
+.tl-right { flex: 1; }
+.tl-country {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--cream);
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 3px;
+}
+.tl-flag { font-size: 1.25rem; }
+.tl-detail {
+  font-size: 1.1rem;
+  color: var(--off);
+  font-weight: 300;
+  line-height: 1.6;
+}
+.tl-gold {
+  color: var(--gold-l);
+  font-family: 'Space Mono', monospace;
+  font-size: 1.0rem;
+  letter-spacing: 1px;
+}
+
+/* ─── MAIN BUTTONS ─── */
+.buttons {
+  padding: 32px 28px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 18px;
+  border-radius: 6px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  position: relative;
+  overflow: hidden;
+}
+.btn::after {
+  content: '→';
+  position: absolute;
+  right: 18px;
+  font-size: 1.1rem;
+  opacity: 0.45;
+  transition: right 0.15s;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn:hover::after { right: 14px; opacity: 0.8; }
+.btn:active { transform: translateY(0); }
+
+.btn-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+.btn-body { flex: 1; }
+.btn-title {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: inherit;
+  margin-bottom: 2px;
+}
+.btn-sub {
+  display: block;
+  font-size: 1.0rem;
+  opacity: 0.55;
+  font-family: 'Space Mono', monospace;
+  letter-spacing: 0.5px;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #c4922a 0%, #d4a030 50%, #b8842a 100%);
+  color: #fff;
+  box-shadow: 0 6px 24px rgba(196,146,42,0.22);
+}
+.btn-primary .btn-sub { opacity: 0.75; }
+
+.btn-wa {
+  background: rgba(37,211,102,0.07);
+  border: 1px solid rgba(37,211,102,0.18);
+  color: #5de68a;
+}
+
+.btn-neutral {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  color: var(--off);
+}
+
+/* ─── SYLLABUSES ─── */
+.syllabuses {
+  padding: 32px 28px 0;
+}
+
+.syl-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.syl-item {
+  background: rgba(196,146,42,0.06);
+  border: 1px solid rgba(196,146,42,0.14);
+  border-radius: 6px;
+  padding: 14px 14px 12px;
+  transition: background 0.15s;
+}
+.syl-item:hover { background: rgba(196,146,42,0.1); }
+.syl-code {
+  font-family: 'Space Mono', monospace;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--gold-l);
+  display: block;
+  margin-bottom: 4px;
+  letter-spacing: 1px;
+}
+.syl-board {
+  font-size: 1.0rem;
+  color: var(--dim);
+  font-family: 'Space Mono', monospace;
+  letter-spacing: 0.5px;
+  margin-bottom: 3px;
+  display: block;
+}
+.syl-name {
+  font-size: 1.0rem;
+  color: var(--off);
+  font-weight: 300;
+  line-height: 1.4;
+}
+
+/* ─── WHO I WORK WITH ─── */
+.who {
+  padding: 32px 28px 0;
+}
+.who-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.who-item {
+  display: flex;
+  gap: 14px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--rule);
+  align-items: flex-start;
+}
+.who-item:last-child { border-bottom: none; }
+.who-icon { font-size: 1.25rem; flex-shrink: 0; margin-top: 1px; }
+.who-body {}
+.who-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--cream);
+  margin-bottom: 3px;
+}
+.who-desc {
+  font-size: 1.1rem;
+  color: var(--off);
+  font-weight: 300;
+  line-height: 1.65;
+}
+
+/* ─── FREE RESOURCE ─── */
+.freebie {
+  margin: 32px 28px 0;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 8px;
+  padding: 24px 20px;
+  position: relative;
+  overflow: hidden;
+}
+.freebie::before {
+  content: 'FREE';
+  position: absolute;
+  top: 12px; right: -8px;
+  background: var(--gold);
+  color: #fff;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  padding: 4px 14px 4px 10px;
+  transform: none;
+}
+.freebie-title {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 6px;
+  line-height: 1.3;
+  padding-right: 48px;
+}
+.freebie-desc {
+  font-size: 1.1rem;
+  color: var(--off);
+  font-weight: 300;
+  line-height: 1.65;
+  margin-bottom: 16px;
+}
+.freebie-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: transparent;
+  border: 1px solid rgba(196,146,42,0.4);
+  color: var(--gold-l);
+  font-family: 'Space Mono', monospace;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 10px 16px;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background 0.15s, border-color 0.15s;
+  cursor: pointer;
+}
+.freebie-btn:hover {
+  background: rgba(196,146,42,0.08);
+  border-color: rgba(196,146,42,0.6);
+}
+
+/* ─── QUOTE ─── */
+.quote-block {
+  margin: 32px 28px 0;
+  padding: 26px 22px;
+  background: rgba(196,146,42,0.04);
+  border-left: 2px solid var(--gold);
+  border-radius: 0 6px 6px 0;
+}
+.quote-mark {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 3.6rem;
+  color: rgba(196,146,42,0.2);
+  line-height: 0.7;
+  display: block;
+  margin-bottom: 10px;
+}
+.quote-text {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 1.25rem;
+  font-style: italic;
+  color: rgba(248,243,235,0.72);
+  line-height: 1.7;
+  margin-bottom: 14px;
+}
+.quote-attr {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.85rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+.quote-attr span { color: var(--gold); }
+
+/* ─── LOCATIONS ─── */
+.locations {
+  padding: 32px 28px 0;
+}
+.loc-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+.loc-chip {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  border: 1px solid var(--rule);
+  color: var(--dim);
+  background: rgba(255,255,255,0.02);
+  transition: border-color 0.15s;
+}
+.loc-chip.live {
+  background: rgba(30,107,94,0.12);
+  border-color: rgba(30,107,94,0.3);
+  color: #6dd9c8;
+}
+.loc-chip:hover { border-color: rgba(196,146,42,0.3); }
+
+/* ─── BOTTOM CTA ─── */
+.bottom-cta {
+  margin: 32px 28px 0;
+}
+.bottom-cta-inner {
+  background: linear-gradient(140deg, #1a1006 0%, #201408 100%);
+  border: 1px solid rgba(196,146,42,0.2);
+  border-radius: 10px;
+  padding: 32px 24px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.bottom-cta-inner::before {
+  content: '';
+  position: absolute;
+  top: -60px; left: 50%;
+  transform: translateX(-50%);
+  width: 240px; height: 120px;
+  background: radial-gradient(ellipse, rgba(196,146,42,0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+.bca-title {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 1.69rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.3;
+  margin-bottom: 8px;
+  position: relative; z-index:1;
+}
+.bca-sub {
+  font-size: 1.1rem;
+  color: var(--off);
+  font-weight: 300;
+  line-height: 1.65;
+  margin-bottom: 22px;
+  position: relative; z-index:1;
+}
+.bca-btn {
+  display: inline-block;
+  background: var(--gold);
+  color: #fff;
+  font-family: 'Space Mono', monospace;
+  font-size: 1.0rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 14px 30px;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.15s;
+  position: relative; z-index:1;
+}
+.bca-btn:hover { background: #d4a030; transform: translateY(-2px); }
+
+/* ─── FOOTER ─── */
+.footer {
+  padding: 32px 28px 16px;
+  text-align: center;
+  border-top: 1px solid var(--rule);
+  margin-top: 32px;
+}
+.footer-handle {
+  font-family: 'Space Mono', monospace;
+  font-size: 1.0rem;
+  letter-spacing: 2px;
+  color: rgba(196,146,42,0.6);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.footer-detail {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.85rem;
+  letter-spacing: 1.5px;
+  color: var(--dim);
+  text-transform: uppercase;
+  line-height: 2;
+}
+.footer-detail a { color: var(--dim); text-decoration: none; }
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadeUp {
+  from { opacity:0; transform: translateY(16px); }
+  to   { opacity:1; transform: translateY(0); }
+}
+.hero { animation: fadeUp 0.6s ease both; }
+.cred-strip { animation: fadeUp 0.6s 0.1s ease both; }
+.story { animation: fadeUp 0.6s 0.15s ease both; }
+.buttons { animation: fadeUp 0.6s 0.2s ease both; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ── HERO ── -->
+  <div class="hero">
+    <div class="avatar-wrap">
+      <div class="avatar-ring">
+        <div class="avatar-inner">
+          <div class="avatar-initials">AL</div>
+        </div>
+      </div>
+      <div class="avatar-badge">✦</div>
+    </div>
+
+    <div class="hero-name">Anna Lazouskaya</div>
+    <div class="hero-role">
+      Cambridge English Specialist<br>
+      Literature &amp; Language · Online Worldwide
+    </div>
+
+    <!-- Journey -->
+    <div class="journey">
+      <div class="journey-stop">
+        <div class="j-flag">🇷🇺</div>
+        <div class="j-label">Born</div>
+      </div>
+      <div class="journey-arrow">→</div>
+      <div class="journey-stop">
+        <div class="j-flag">🇺🇸</div>
+        <div class="j-label">Educated</div>
+      </div>
+      <div class="journey-arrow">→</div>
+      <div class="journey-stop">
+        <div class="j-flag">🇦🇪</div>
+        <div class="j-label">Taught</div>
+      </div>
+      <div class="journey-arrow">→</div>
+      <div class="journey-stop">
+        <div class="j-flag">🇵🇰</div>
+        <div class="j-label">Based Now</div>
+      </div>
+      <div class="journey-arrow">→</div>
+      <div class="journey-stop">
+        <div class="j-flag">🌍</div>
+        <div class="j-label">Teaching</div>
+      </div>
+    </div>
+    <div class="hero-tagline">4 countries · 1 mission · Cambridge results</div>
+  </div>
+
+  <!-- ── STATS ── -->
+  <div class="cred-strip">
+    <div class="cred">
+      <span class="cred-num">74K+</span>
+      <span class="cred-label">Monthly<br>Views</span>
+    </div>
+    <div class="cred">
+      <span class="cred-num">4</span>
+      <span class="cred-label">Cambridge<br>Syllabuses</span>
+    </div>
+    <div class="cred">
+      <span class="cred-num">3</span>
+      <span class="cred-label">Countries<br>Taught In</span>
+    </div>
+    <div class="cred">
+      <span class="cred-num">FREE</span>
+      <span class="cred-label">First<br>Class</span>
+    </div>
+  </div>
+
+  <!-- ── STORY ── -->
+  <div class="story">
+    <span class="s-label">The Background</span>
+    <div class="story-text">
+      Most tutors know one system. <strong>I've lived inside four.</strong> That's what makes the difference for Cambridge students worldwide.
+    </div>
+
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-left">
+          <div class="tl-dot"></div>
+          <div class="tl-line"></div>
+        </div>
+        <div class="tl-right">
+          <div class="tl-country"><span class="tl-flag">🇷🇺</span> Russia</div>
+          <div class="tl-detail">Born and raised. Developed a deep understanding of rigorous, structured academic thinking — the foundation of everything I teach.</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-left">
+          <div class="tl-dot"></div>
+          <div class="tl-line"></div>
+        </div>
+        <div class="tl-right">
+          <div class="tl-country"><span class="tl-flag">🇺🇸</span> United States</div>
+          <div class="tl-detail">Educated and worked in the US. Mastered academic English at university level — writing, argumentation, literary analysis. <span class="tl-gold">This is where I learned how English examiners think.</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-left">
+          <div class="tl-dot"></div>
+          <div class="tl-line"></div>
+        </div>
+        <div class="tl-right">
+          <div class="tl-country"><span class="tl-flag">🇦🇪</span> United Arab Emirates</div>
+          <div class="tl-detail">Taught in the UAE — home to one of the world's largest Cambridge student populations. I know the pressures, the syllabuses, and what UAE students specifically struggle with.</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-left">
+          <div class="tl-dot"></div>
+          <div class="tl-line"></div>
+        </div>
+        <div class="tl-right">
+          <div class="tl-country"><span class="tl-flag">🇵🇰</span> Pakistan · Now</div>
+          <div class="tl-detail">Based in Pakistan, teaching online worldwide. <span class="tl-gold">Every Cambridge student, everywhere, gets the same method that works.</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── BUTTONS ── -->
+  <div class="buttons">
+    <a href="https://wa.me/923318053746?text=Hi%20Anna!%20I%27d%20like%20to%20book%20a%20free%20trial%20class%20%F0%9F%93%9A" class="btn btn-primary" target="_blank" rel="noopener">
+      <span class="btn-icon">📚</span>
+      <div class="btn-body">
+        <span class="btn-title">Book Your Free Trial Class</span>
+        <span class="btn-sub">Opens WhatsApp · No commitment · Worldwide</span>
+      </div>
+    </a>
+    <a href="https://wa.me/923318053746?text=Hi%20Anna!%20I%20found%20you%20on%20Instagram%20and%20I%27m%20ready%20to%20start%20%F0%9F%91%8B" class="btn btn-wa" target="_blank" rel="noopener">
+      <span class="btn-icon">💬</span>
+      <div class="btn-body">
+        <span class="btn-title">WhatsApp Me Directly</span>
+        <span class="btn-sub">Fastest response · Say "READY" to start</span>
+      </div>
+    </a>
+    <a href="https://www.instagram.com/annawithenglish" class="btn btn-neutral" target="_blank" rel="noopener">
+      <span class="btn-icon">📸</span>
+      <div class="btn-body">
+        <span class="btn-title">Follow on Instagram & TikTok</span>
+        <span class="btn-sub">@annawithenglish · Free tips every week</span>
+      </div>
+    </a>
+    <a href="cambridge_response_template_v2.pdf" class="btn btn-neutral" download="Cambridge_Response_Template_Anna.pdf">
+      <span class="btn-icon">⬇</span>
+      <div class="btn-body">
+        <span class="btn-title">Free Response Template (PDF)</span>
+        <span class="btn-sub">The paragraph formula that earns marks</span>
+      </div>
+    </a>
+  </div>
+
+  <!-- ── SYLLABUSES ── -->
+  <div class="syllabuses">
+    <span class="s-label" style="margin-top:32px; display:block;">Cambridge Syllabuses I Teach</span>
+    <div class="syl-grid">
+      <div class="syl-item">
+        <span class="syl-code">0475</span>
+        <span class="syl-board">Cambridge IGCSE</span>
+        <span class="syl-name">Literature in English</span>
+      </div>
+      <div class="syl-item">
+        <span class="syl-code">0500</span>
+        <span class="syl-board">Cambridge IGCSE</span>
+        <span class="syl-name">First Language English</span>
+      </div>
+      <div class="syl-item">
+        <span class="syl-code">1123</span>
+        <span class="syl-board">Cambridge O Level</span>
+        <span class="syl-name">English Language</span>
+      </div>
+      <div class="syl-item">
+        <span class="syl-code">2010</span>
+        <span class="syl-board">Cambridge O Level</span>
+        <span class="syl-name">Literature in English</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── WHO I WORK WITH ── -->
+  <div class="who">
+    <span class="s-label" style="margin-top:32px; display:block;">Who I Work With</span>
+    <div class="who-list">
+      <div class="who-item">
+        <span class="who-icon">🎯</span>
+        <div class="who-body">
+          <div class="who-title">Students stuck at C or D</div>
+          <div class="who-desc">The problem is never effort — it's method. Cambridge rewards a very specific approach. I teach exactly that.</div>
+        </div>
+      </div>
+      <div class="who-item">
+        <span class="who-icon">📈</span>
+        <div class="who-body">
+          <div class="who-title">B students chasing A or A*</div>
+          <div class="who-desc">You know the content. I'll show you how to write answers that Cambridge examiners actually reward at the top band.</div>
+        </div>
+      </div>
+      <div class="who-item">
+        <span class="who-icon">👨‍👩‍👧</span>
+        <div class="who-body">
+          <div class="who-title">Parents who want results</div>
+          <div class="who-desc">One focused teacher beats five scattered ones. I work 1-on-1 and in small groups, online, from anywhere in the world.</div>
+        </div>
+      </div>
+      <div class="who-item">
+        <span class="who-icon">🌍</span>
+        <div class="who-body">
+          <div class="who-title">International students worldwide</div>
+          <div class="who-desc">Pakistan · UAE · UK · Malaysia · Nigeria · Bangladesh · Singapore — if Cambridge sets your exam, I can teach you.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── FREE RESOURCE ── -->
+  <div class="freebie">
+    <div class="freebie-title">The Cambridge Literature Response Template</div>
+    <div class="freebie-desc">The exact paragraph formula that earns marks in 0475 and 2010. Quote → Technique → Effect → Theme. One page. Use it in your next essay tonight.</div>
+    <a href="cambridge_response_template_v2.pdf" class="freebie-btn" download="Cambridge_Response_Template_Anna.pdf">⬇ &nbsp;Download Free PDF</a>
+  </div>
+
+  <!-- ── TESTIMONIAL ── -->
+  <div class="quote-block">
+    <span class="quote-mark">"</span>
+    <div class="quote-text">I failed English Literature twice. After six weeks with Anna I walked out with a B. She doesn't just teach the text — she teaches you how the examiner thinks.</div>
+    <div class="quote-attr">— Student · <span>O Level 0475 · Pakistan</span></div>
+  </div>
+
+  <!-- ── LOCATIONS ── -->
+  <div class="locations">
+    <span class="s-label" style="margin-top:32px; display:block;">Students I Currently Work With</span>
+    <div class="loc-wrap">
+      <div class="loc-chip live">🇵🇰 Pakistan</div>
+      <div class="loc-chip live">🇦🇪 UAE</div>
+      <div class="loc-chip live">🇬🇧 UK</div>
+      <div class="loc-chip live">🇲🇾 Malaysia</div>
+      <div class="loc-chip">🇳🇬 Nigeria</div>
+      <div class="loc-chip">🇧🇩 Bangladesh</div>
+      <div class="loc-chip">🇸🇬 Singapore</div>
+      <div class="loc-chip">🌍 Worldwide</div>
+    </div>
+  </div>
+
+  <!-- ── BOTTOM CTA ── -->
+  <div class="bottom-cta">
+    <div class="bottom-cta-inner">
+      <div class="bca-title">Your first class<br>is completely free.</div>
+      <div class="bca-sub">No pressure. No commitment. Bring your last essay or past paper and we'll start right there.</div>
+      <a href="https://wa.me/923318053746?text=Hi%20Anna!%20I%27d%20like%20to%20book%20a%20free%20trial%20class%20%F0%9F%93%9A" class="bca-btn" target="_blank" rel="noopener">Book Free Class →</a>
+    </div>
+  </div>
+
+  <!-- ── FOOTER ── -->
+  <div class="footer">
+    <div class="footer-handle">@annawithenglish</div>
+    <div class="footer-detail">
+      Instagram · TikTok · Online Worldwide<br>
+      DM <strong style="color:rgba(196,146,42,0.7)">READY</strong> to start · First class free<br>
+      Cambridge Specialist · 🇷🇺🇺🇸🇦🇪🇵🇰
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
